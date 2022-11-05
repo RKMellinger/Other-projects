@@ -1,11 +1,17 @@
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
-import Head from "./Components/Head";
-import ProductReviewList from "./Components/ProductReviewList";
-import ProductReviewStats from "./Components/ProductReviewStats";
-import ProductData from "./Data/ProductData";
+
+import MovieReviewList from "./Components/MovieReviewList";
+import MovieReviewStats from "./Components/MovieReviewStats";
+import MovieData from "./Data/MovieData";
 import ReviewForm from "./Components/ReviewForm";
+import NavbarLink from "./Components/NavbarLink";
 function App() {
-  const [review, setReview] = useState(ProductData);
+  const [review, setReview] = useState(MovieData);
+  const addReview = (newReview) => {
+    newReview.id = uuidv4();
+    setReview([newReview, ...review]);
+  };
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
       setReview(review.filter((item) => item.id !== id));
@@ -13,11 +19,10 @@ function App() {
   };
   return (
     <>
-      <Head />
       <div className="container">
-        <ReviewForm />
-        <ProductReviewStats review={review} />
-        <ProductReviewList
+        <ReviewForm handleAdd={addReview} />
+        <MovieReviewStats review={review} />
+        <MovieReviewList
           review={review}
           handleDelete={deleteFeedback}
         />

@@ -75,14 +75,14 @@ header {
 }
 .rating li:hover,
 .num-display {
-  background: #0c8528;
+  background: #0c2885;
   color: #fff;
 }
 [type='radio'] {
   opacity: 0;
 }
 [type='radio']:checked~label {
-  background: #0c8528;
+  background: #0c2885;
   color: #fff;
 }
 .input-group {
