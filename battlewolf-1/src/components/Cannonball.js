@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Card, Col, Container } from "react-bootstrap";
+import { Button, Card, Col, Container } from "react-bootstrap";
 
 // Card image https://images.squarespace-cdn.com/content/v1/56b390861d07c0e5348f61f6/1619023691162-OWBQ6X3XIH36IZOMGHFY/JRD02933_6.jpg?format=1500w
 
 export default function Cannonball() {
-  const [cannonBall, setCannonBall] = useState("");
-  const randomNumber = Math.floor(Math.random() * 8);
+  let [cannonBall, setCannonBall] = useState("");
+  let randomNumber = Math.floor(Math.random() * 8);
 
   switch (randomNumber) {
     case (randomNumber = 0):
@@ -33,10 +33,31 @@ export default function Cannonball() {
       setCannonBall = "The mists not be answering now, maybe later";
       break;
   }
+  // render the cannonball card
+  // render cannonball image 400x400
+  //create switch to start cannonball function
+  // show cannonball message after button click
 
   return (
     <Container>
-      <Card className="eightball"></Card>
+      <Col>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://images.squarespace-cdn.com/content/v1/56b390861d07c0e5348f61f6/1619023691162-OWBQ6X3XIH36IZOMGHFY/JRD02933_6.jpg?format=1500w"
+            alt="cannonball"
+            width={400}
+            height={400}
+          />
+          <Card.Body>
+            <Card.Title>Cannonball</Card.Title>
+            <Card.Text>
+              <p>{cannonBall}</p>
+            </Card.Text>
+            <Button variant="primary">Ask the Cannonball</Button>
+          </Card.Body>
+        </Card>
+      </Col>
     </Container>
   );
 }
