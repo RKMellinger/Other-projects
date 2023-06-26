@@ -1,11 +1,14 @@
+import { Container } from "react-bootstrap";
 import "./App.css";
-import Cannonball from "./components/Cannonball";
+import Bwnav from "./components/navbar.js";
 
 function App() {
   return (
     <div className="App">
-      Greetings Program
-      <Cannonball />
+      <header className="App-header">
+        <Bwnav></Bwnav>
+      </header>
+      <body></body>
     </div>
   );
 }
